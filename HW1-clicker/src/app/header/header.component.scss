@@ -1,0 +1,36 @@
+@import "../../styles.scss";
+
+.header {
+  @include flex-center;
+  flex-direction: column;
+  font-family: $lt;
+  height: 100vh;
+  width: 100%;
+
+  &__title {
+    font-family: $ltb;
+    font-size: $f24;
+  }
+
+  &__container{
+    @include flex-center;
+  flex-direction: column;
+  }
+}
+
+.fullscreen {
+  background-color: $light;
+  color: $dark-grey;
+  font-size: $f14;
+}
+
+.fullscreenNon {
+  background-color: $dark-grey;
+  color: $light;
+  padding: 2rem;
+
+  .header__title {
+    font-family: $ltb;
+    font-size: $f18;
+  }
+}

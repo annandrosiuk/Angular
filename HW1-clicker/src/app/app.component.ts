@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'HW1-clicker';
+  title = 'HW1-Clicker';
+  name = '';
+  showVar: boolean = false;
+
+  changeName(newName: string) {
+    this.name = newName
+  }
+
+  setToggle() {
+    this.showVar = !this.showVar;
+  }
 }

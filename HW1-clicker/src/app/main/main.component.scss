@@ -1,0 +1,16 @@
+@import "../../styles.scss";
+
+.main{
+  width: 100%;
+  margin: 2rem 0;
+  @include flex-center;
+  flex-direction: column;
+
+  &__button{
+    border-radius: 50%;
+    @include basic(20rem, 20rem);
+    background-color: $red;
+    color: $light;
+    font-size: $f24;
+  }
+}
