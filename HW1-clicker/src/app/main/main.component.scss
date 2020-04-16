@@ -1,16 +1,41 @@
 @import "../../styles.scss";
 
-.main{
+.main {
   width: 100%;
   margin: 2rem 0;
   @include flex-center;
   flex-direction: column;
 
-  &__button{
+  &__start-game,
+  &__end-game{
+    @include flex-center;
+    flex-direction: column;
+  }
+
+  &__label{
+    font-family: $lt;
+    color: rgba($color: $light-grey, $alpha: .7);
+    font-size: $f10;
+  }
+
+  &__input{
+    font-family: $lt;
+    margin: .5rem 0 1rem 0;
+    width: 5rem;
+    font-size: $f14;
+  }
+
+  &__button {
     border-radius: 50%;
     @include basic(20rem, 20rem);
     background-color: $red;
     color: $light;
     font-size: $f24;
+  }
+
+  &__info {
+    font-family: $lt;
+    margin: 1rem 0;
+    font-size: $f14;
   }
 }

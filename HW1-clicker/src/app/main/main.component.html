@@ -1,3 +1,18 @@
 <div *ngIf="showMePartially" class="main">
-  <button class="main__button">Click!</button>
+
+  <div class="main__start-game" *ngIf="!disabled; else restart">
+    <label class="main__label" for="">Enter the duration of the game</label>
+    <input class="main__input" (blur)="getTimeout($event)" type="number" placeholder="3">
+    <button class="main__button" (click)="increaseCounter()" (click)="timerStart()"
+      [disabled]="disabled">Click!</button>
+  </div>
+
+  <ng-template #restart>
+    <div class="main__end-game">
+      <button class="main__button1" (click)="restartGame()">Restart</button>
+      <p class="main__info">You speed was {{speed}} clics in 1sec</p>
+    </div>
+  </ng-template>
+  <p class="main__info">You clicked {{ counter }} times</p>
+
 </div>
