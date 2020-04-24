@@ -18,13 +18,15 @@
 
   <div *ngIf="showResults" class="results__container">
     <ul class="results__list">
-      <li class="results__item">
+      <li class="results__item results__item--header">
+        <span class="results__header">#</span>
         <span class="results__header">name</span>
         <span class="results__header">clicks</span>
         <span class="results__header">speed</span>
         <span class="results__header">date</span>
       </li>
-      <li *ngFor="let res of obj | slice:0:10;" class="results__item">
+      <li *ngFor="let res of obj | slice:0:10; let idx = index" class="results__item">
+        <p class="results__clicks">{{idx + 1}}.</p>
         <h4 class="results__name">{{res.name}}</h4>
         <p class="results__clicks">{{res.counts}}</p>
         <p class="results__clicks">{{res.speed | number: '1.1-3'}}</p>

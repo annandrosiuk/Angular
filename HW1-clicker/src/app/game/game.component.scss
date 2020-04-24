@@ -37,9 +37,10 @@
     color: $light;
     font-size: $f50;
     transition: all 0.3s ease-in-out;
+    animation: shadow-pulse 1s infinite;
 
     &:hover {
-      background-color: rgba($color: $red, $alpha: 0.9);
+      animation: none;
     }
 
     &:focus {
