@@ -21,16 +21,16 @@ export class GameComponent implements OnInit {
   constructor(private router: Router,
     private userService: UserService,
     private resultService: ResultsService,
-    private gameStages: GameStagesService) { }
+    private gameStagesService: GameStagesService) { }
 
   ngOnInit(): void {
     this.name = this.userService.name;
-    this.gameStages.getTimer(this.timer)
+    this.gameStagesService.getTimer(this.timer)
   }
 
   getTimeout(event) {
     this.timer = event.target.value;
-    this.gameStages.getTimer(this.timer)
+    this.gameStagesService.getTimer(this.timer)
   }
 
   increaseCounter() {
@@ -54,7 +54,7 @@ export class GameComponent implements OnInit {
         this.speed = this.counter / firstTimer
         this.router.navigate(['/results'])
         this.resultService.addResult(this.counter, this.speed)
-        this.gameStages.pushUserInfo(this.counter)
+        this.gameStagesService.pushUserInfo(this.counter)
       }
     }, 1000)
   }

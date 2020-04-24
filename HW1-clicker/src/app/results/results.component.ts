@@ -11,10 +11,11 @@ import { GameStagesService } from '../services/game-stages.service';
 })
 export class ResultsComponent implements OnInit {
   name: string;
-  speed
-  counter
+  speed: number
+  counter: number
   obj
   showResults = false
+  totalScore: number
 
   constructor(private router: Router,
     private userService: UserService,
@@ -26,11 +27,26 @@ export class ResultsComponent implements OnInit {
     this.speed = this.gameStagesService.getUserInfo()[1]
     this.counter = this.gameStagesService.getUserInfo()[0]
     this.obj = this.resultsService.getScores();
+
+    if (this.speed < 5) {
+      this.totalScore = 1
+    }
+
+    if (this.speed > 5 && this.speed < 10) {
+      this.totalScore = 2
+    }
+
+    if (this.speed > 10 && this.speed < 20) {
+      this.totalScore = 3
+    }
+
+    if (this.speed > 20) {
+      this.totalScore = 4
+    }
   }
 
-  restart(){
+  restart() {
     this.router.navigate(['/'])
   }
-
 
 }

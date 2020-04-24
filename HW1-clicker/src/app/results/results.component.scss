@@ -78,13 +78,22 @@
   }
 
   &__item {
-    @include dis-flex( space-evenly, center);
-    justify-content: space-between;
-    border-bottom: 1px solid $dark-grey;
+    border-bottom: 1px solid rgba($color: $dark-grey, $alpha: 0.7);
     font-family: $lt;
     padding: 1rem 2rem;
     margin: 1rem 0;
     font-size: $f18;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: center;
+  }
+
+  &__header {
+    font-family: $ltb;
+    font-size: $f14;
+    color: $dark-grey;
+    text-transform: uppercase;
+    margin: 0 5rem;
   }
 
   &__clicks {
