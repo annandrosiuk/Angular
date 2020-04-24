@@ -7,6 +7,7 @@ export class GameStagesService {
   speed;
   timer;
   res = [];
+  userInfo = this.getUserInfo();
 
   public getTimer(timer?) {
     this.timer = timer
@@ -14,10 +15,15 @@ export class GameStagesService {
   }
 
   public pushUserInfo(counts) {
-    this.speed = this.timer / counts
     this.counter = counts;
-    this.res.push(this.counter)
-    this.res.push(this.speed)
+    this.speed = counts / this.timer
+
+    if (this.res == []) {
+      this.res.push(this.counter, this.speed)
+    } else {
+      this.res.splice(0, 2)
+      this.res.push(this.counter, this.speed)
+    }
     localStorage.setItem('personalResult', JSON.stringify(this.res));
   }
 

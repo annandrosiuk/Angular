@@ -12,10 +12,11 @@ import { GameStagesService } from '../services/game-stages.service';
 export class GameComponent implements OnInit {
   name: string;
   counter = 0;
-  timer = 1;
+  timer = 5;
   begin: boolean = true;
   play: boolean = false;
   interval;
+  speed
 
   constructor(private router: Router,
     private userService: UserService,
@@ -44,14 +45,15 @@ export class GameComponent implements OnInit {
   }
 
   startTimeout() {
+    let firstTimer = this.timer
     this.interval = setInterval(() => {
-      let firstTimer = this.timer
       if (this.timer > 0) {
         this.timer--;
       } else {
         clearInterval(this.interval);
+        this.speed = this.counter / firstTimer
         this.router.navigate(['/results'])
-        this.resultService.addResult(this.counter)
+        this.resultService.addResult(this.counter, this.speed)
         this.gameStages.pushUserInfo(this.counter)
       }
     }, 1000)
