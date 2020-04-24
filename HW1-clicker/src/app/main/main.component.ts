@@ -1,39 +1,42 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserService } from '../services/user.service'
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent {
-  counter: number = 0;
-  disabled = false;
-  delay: number = 3000;
-  speed: number =  this.counter / this.delay;
-
-  @Input() name: string;
-  @Input() showMePartially: boolean;
-
-  getTimeout(event){
-    this.delay = event.target.value * 1000;
-    console.log(`it works, delay is ${this.delay}`)
-  }
-
-  increaseCounter() {
-    this.counter++;
-  }
-
-  timerStart(){
-    setTimeout(()=>{
-      this.disabled = true;
-      this.speed = this.counter / (this.delay / 1000);
-      // console.log('timeout');
-    }, this.delay);
-  }
+export class MainComponent implements OnInit {
   
-  restartGame(){
-    this.counter = 0;
-    this.disabled = false;
-    console.log('restart');
+  name = '';
+  title: string = 'Clicker Game';
+  form: FormGroup
+
+  constructor(private router: Router, private userService: UserService) { }
+
+  addNewName() {
+    this.userService.addNewName(this.name);
+    this.name = '';
+    this.router.navigate(['/game'])
   }
+
+  ngOnInit() {
+    this.form = new FormGroup({
+      name: new FormControl('', [
+        Validators.minLength(2),
+        Validators.required
+      ])
+    });
+  }
+
+  submit() {
+    if (this.form.valid) {
+      console.log('form', this.form);
+      const formData = { ...this.form.value };
+      console.log('form Data ', formData);
+    }
+  }
+
 }

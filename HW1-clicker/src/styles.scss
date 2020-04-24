@@ -2,3 +2,25 @@
 @import "./styleSettings/fonts";
 @import "./styleSettings/variables";
 @import "./styleSettings/keyframes";
+
+.form-control {
+  display: block;
+  margin-top: 0.3rem;
+  margin-bottom: .5rem;
+
+  label {
+    display: block;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: .5rem;
+  }
+
+  input {
+    margin-bottom: 0;
+  }
+
+  .validation {
+    color: red;
+    font-size: $f10;
+  }
+}

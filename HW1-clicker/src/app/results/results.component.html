@@ -1,0 +1,19 @@
+<div class="main">
+  <h3 class="greeting__title"> Game over, {{ name }}</h3>
+
+  <h3>You clicked {{counter}} times and your speed was {{speed}} </h3>
+
+  <button (click)="showResults = !showResults">Show all results</button>
+  <button (click)="restart()">Restart</button>
+
+  <ul *ngIf="showResults">
+    <li *ngFor="let res of obj">
+      <h4>{{res.name}}</h4>
+      <p>{{res.counts}}</p>
+      <p>{{res.date | date}}</p>
+      <hr />
+    </li>
+  </ul>
+
+
+</div>

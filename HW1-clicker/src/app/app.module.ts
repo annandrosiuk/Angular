@@ -1,24 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { GreetingComponent } from './greeting/greeting.component';
 import { MainComponent } from './main/main.component';
+import { GameComponent } from './game/game.component';
+import { ResultsComponent } from './results/results.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ResultsService } from './services/results.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    GreetingComponent,
-    MainComponent
+    MainComponent,
+    GameComponent,
+    ResultsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [ResultsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

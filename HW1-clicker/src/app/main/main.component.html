@@ -1,18 +1,22 @@
-<div *ngIf="showMePartially" class="main">
+<div class="header">
+  <h1 class="header__title"> {{ title }} </h1>
 
-  <div class="main__start-game" *ngIf="!disabled; else restart">
-    <label class="main__label" for="">Enter the duration of the game</label>
-    <input class="main__input" (blur)="getTimeout($event)" type="number" placeholder="3">
-    <button class="main__button" (click)="increaseCounter()" (click)="timerStart()"
-      [disabled]="disabled">Click!</button>
-  </div>
+  <form class="header__container" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-control">
+      <label for="">Please, enter your name</label>
 
-  <ng-template #restart>
-    <div class="main__end-game">
-      <button class="main__button1" (click)="restartGame()">Restart</button>
-      <p class="main__info">You speed was {{speed}} clics in 1sec</p>
+      <input type="text" [(ngModel)]="name" (keyup.enter)="addNewName()" formControlName="name">
+
+      <div *ngIf="form.get('name').invalid && form.get('name').touched" class="validation">
+        <small *ngIf="form.get('name').errors.required"> Name cant be empty</small>
+        <small *ngIf="form.get('name').errors.minlength">
+          Unvalid name(too short) {{form.get('name').errors.minlength.requiredLength}}
+          {{form.get('name').errors.minlength.actualLength}}
+        </small>
+      </div>
+
     </div>
-  </ng-template>
-  <p class="main__info">You clicked {{ counter }} times</p>
+    <button (click)="addNewName()" type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
 
 </div>

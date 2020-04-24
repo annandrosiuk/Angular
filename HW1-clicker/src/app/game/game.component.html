@@ -1,0 +1,18 @@
+<div class="main">
+  <h3 class="greeting__title"> Hello, {{ name }}</h3>
+
+  <div *ngIf="begin; else play" class="main__start-game">
+    <label class="main__label" for="">Enter the duration of the game (in seconds)</label>
+    <input class="main__input" (blur)="getTimeout($event)" type="number" placeholder="5">
+    <button class="main__button" (click)="startGame()">Start!</button>
+  </div>
+
+  <ng-template #play>
+    <div class="main__start-game">
+      <div class="timer"> timer {{ timer}}</div>
+      <button class="main__button" (click)="increaseCounter()">Click!</button>
+      <p class="main__info">You clicked {{ counter }} times</p>
+    </div>
+  </ng-template>
+
+</div>
