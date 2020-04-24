@@ -7,14 +7,4 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   title = 'HW1-Clicker';
-  name = '';
-  showVar: boolean = false;
-
-  changeName(newName: string) {
-    this.name = newName
-  }
-
-  setToggle() {
-    this.showVar = !this.showVar;
-  }
 }

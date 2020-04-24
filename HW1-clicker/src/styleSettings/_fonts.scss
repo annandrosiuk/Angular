@@ -1,10 +1,3 @@
-// @font-face {
-//   font-family: "Lato";
-//   src: url(/assets/fonts/Silhouetto-Script/Silhouetto-Regular.ttf);
-//   font-weight: normal;
-//   font-style: normal;
-// }
-
 @font-face {
   font-family: "Lato";
   src: url(/assets/fonts/Lato/Lato-Regular.ttf);
@@ -15,41 +8,6 @@
 @font-face {
   font-family: "Lato-Black";
   src: local("Lato-Black"), url(/assets/fonts/Lato/Lato-Black.ttf) format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Old Standard TT";
-  src: local("Old Standard TT"), url(/assets/fonts/Old_Standard_TT/OldStandard-Regular.ttf) format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Old Standard TT Black";
-  src: local("Old Standard TT Black"), url(/assets/fonts/Old_Standard_TT/OldStandard-Bold.ttf) format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Silhouetto-Script";
-  src: local("Silhouetto-Script"), url(/assets/fonts/Silhouetto-Script/Silhouetto-Regular.ttf) format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-/////
-@font-face {
-  font-family: "OpenSans";
-  src: local("OpenSans"), url(/assets/fonts/OpenSans/OpenSans-Regular.ttf);
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "OpenSans-Bold";
-  src: local("OpenSans-Bold"), url(/assets/fonts/OpenSans/OpenSans-Bold.ttf);
   font-weight: normal;
   font-style: normal;
 }

@@ -1,0 +1,93 @@
+@import "../../styles.scss";
+
+.results {
+  width: 100%;
+  padding: 5rem 0;
+  min-height: 100vh;
+  @include flex-center;
+  flex-direction: column;
+  background-color: $light;
+
+  &__title {
+    font-family: $ltb;
+    font-size: $f40;
+  }
+
+  &__start-game {
+    @include flex-center;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-family: $lt;
+    color: rgba($color: $light-grey, $alpha: 0.7);
+    font-size: $f16;
+  }
+
+  &__input {
+    font-family: $lt;
+    margin: 0.5rem 0 1rem 0;
+    width: 5rem;
+    font-size: $f18;
+  }
+
+  &__button {
+    border-radius: 50%;
+    @include basic(40rem, 40rem);
+    background-color: $red;
+    color: $light;
+    font-size: $f50;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: rgba($color: $red, $alpha: 0.9);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__timer {
+    font-family: $lt;
+    margin: 1rem 0;
+    font-size: $f18;
+
+    &--italic {
+      font-style: italic;
+      font-weight: bolder;
+    }
+  }
+
+  &__info {
+    font-family: $lt;
+    margin: 1rem 0;
+    font-size: $f18;
+  }
+
+  &__container {
+    width: 100%;
+    @include flex-center;
+  }
+
+  &__list {
+    @include flex-center;
+    align-items: stretch;
+    flex-direction: column;
+    width: 70%;
+  }
+
+  &__item {
+    @include dis-flex( space-evenly, center);
+    justify-content: space-between;
+    border-bottom: 1px solid $dark-grey;
+    font-family: $lt;
+    padding: 1rem 2rem;
+    margin: 1rem 0;
+    font-size: $f18;
+  }
+
+  &__clicks {
+    margin: 0 5rem;
+  }
+}

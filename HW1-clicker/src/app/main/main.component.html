@@ -1,22 +1,25 @@
-<div class="header">
-  <h1 class="header__title"> {{ title }} </h1>
+<div class="main">
+  <h1 class="main__title"> {{ title }} </h1>
 
-  <form class="header__container" [formGroup]="form" (ngSubmit)="submit()">
-    <div class="form-control">
-      <label for="">Please, enter your name</label>
+  <form class="main__form form" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form__control">
 
-      <input type="text" [(ngModel)]="name" (keyup.enter)="addNewName()" formControlName="name">
-
-      <div *ngIf="form.get('name').invalid && form.get('name').touched" class="validation">
-        <small *ngIf="form.get('name').errors.required"> Name cant be empty</small>
-        <small *ngIf="form.get('name').errors.minlength">
-          Unvalid name(too short) {{form.get('name').errors.minlength.requiredLength}}
-          {{form.get('name').errors.minlength.actualLength}}
-        </small>
+      <div class="form__group">
+        <input class="form__input" type="text" [(ngModel)]="name" (keyup.enter)="addNewName()" formControlName="name"
+          required>
+        <span class="form__highlight"></span>
+        <span class="form__bar"></span>
+        <label class="form__label">Please, enter your name</label>
       </div>
 
+      <div *ngIf="form.get('name').invalid && form.get('name').touched" class="form__validation">
+        <p *ngIf="form.get('name').errors.required" class="form__error"> Name cant be empty</p>
+        <p *ngIf="form.get('name').errors.minlength" class="form__error">
+          Unvalid name(too short). Need at least {{form.get('name').errors.minlength.requiredLength}} symbols.
+        </p>
+      </div>
     </div>
-    <button (click)="addNewName()" type="submit" [disabled]="form.invalid">Submit</button>
+    <button (click)="addNewName()" type="submit" [disabled]="form.invalid" class="button">Submit</button>
   </form>
 
 </div>

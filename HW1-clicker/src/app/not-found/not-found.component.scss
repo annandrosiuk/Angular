@@ -1,0 +1,13 @@
+@import "../../styles.scss";
+
+.not-found {
+  width: 100%;
+  min-height: 100vh;
+  @include flex-center;
+  background-color: $light;
+
+  &__title {
+    font-family: $ltb;
+    font-size: $f40;
+  }
+}

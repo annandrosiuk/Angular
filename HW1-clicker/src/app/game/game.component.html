@@ -1,5 +1,5 @@
 <div class="main">
-  <h3 class="greeting__title"> Hello, {{ name }}</h3>
+  <h3 class="main__title"> Hello, {{ name }}</h3>
 
   <div *ngIf="begin; else play" class="main__start-game">
     <label class="main__label" for="">Enter the duration of the game (in seconds)</label>
@@ -9,7 +9,7 @@
 
   <ng-template #play>
     <div class="main__start-game">
-      <div class="timer"> timer {{ timer}}</div>
+      <p class="main__timer"> time left: <span class="main__timer--italic">{{ timer}}</span> </p>
       <button class="main__button" (click)="increaseCounter()">Click!</button>
       <p class="main__info">You clicked {{ counter }} times</p>
     </div>

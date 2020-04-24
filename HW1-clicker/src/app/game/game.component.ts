@@ -29,7 +29,6 @@ export class GameComponent implements OnInit {
 
   getTimeout(event) {
     this.timer = event.target.value;
-    console.log(event.target.value);
     this.gameStages.getTimer(this.timer)
   }
 
@@ -38,7 +37,6 @@ export class GameComponent implements OnInit {
   }
 
   startGame() {
-    console.log('game was started');
     this.begin = false;
     this.play = true;
     this.counter = 1;

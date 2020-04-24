@@ -23,7 +23,6 @@ export class GameStagesService {
 
   public getUserInfo() {
     const userInfo = JSON.parse(localStorage.getItem('personalResult'));
-    console.log(userInfo)
     return userInfo;
   }
 }

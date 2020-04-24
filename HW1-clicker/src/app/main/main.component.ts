@@ -33,9 +33,7 @@ export class MainComponent implements OnInit {
 
   submit() {
     if (this.form.valid) {
-      console.log('form', this.form);
       const formData = { ...this.form.value };
-      console.log('form Data ', formData);
     }
   }
 

@@ -1,41 +1,109 @@
 @import "../../styles.scss";
 
 .main {
+  @include flex-center;
+  flex-direction: column;
+  font-family: $lt;
+  min-height: 100vh;
   width: 100%;
-  margin: 2rem 0;
+  background-color: $light;
+
+  &__title {
+    font-family: $ltb;
+    font-size: $f30;
+  }
+}
+
+.form {
   @include flex-center;
   flex-direction: column;
 
-  &__start-game,
-  &__end-game{
+  &__control {
     @include flex-center;
     flex-direction: column;
   }
 
-  &__label{
-    font-family: $lt;
-    color: rgba($color: $light-grey, $alpha: .7);
-    font-size: $f10;
+  &__group {
+    position: relative;
+    margin: 2rem 0 0 0;
   }
 
-  &__input{
-    font-family: $lt;
-    margin: .5rem 0 1rem 0;
-    width: 5rem;
-    font-size: $f14;
+  &__label {
+    color: rgba($color: $light-black, $alpha: 0.5);
+    font-size: $f18;
+    position: absolute;
+    pointer-events: none;
+    left: 0.5rem;
+    top: 1rem;
+    transition: 0.2s ease all;
   }
 
-  &__button {
-    border-radius: 50%;
-    @include basic(20rem, 20rem);
-    background-color: $red;
-    color: $light;
-    font-size: $f24;
+  &__input {
+    font-size: $f18;
+    padding: 1rem 0.5rem;
+    display: block;
+    width: 30rem;
+    border: none;
+    border-bottom: 1px solid rgba($color: $light-black, $alpha: 0.5);
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus ~ .form__label,
+    &:valid ~ .form__label {
+      top: -1.6rem;
+      font-size: $f12;
+      color: $blue;
+    }
+
+    &:focus ~ .form__bar:before,
+    &:focus ~ .form__bar:after {
+      width: 50%;
+    }
   }
 
-  &__info {
-    font-family: $lt;
-    margin: 1rem 0;
-    font-size: $f14;
+  &__bar {
+    position: relative;
+    display: block;
+    width: 31rem;
+
+    &:before,
+    &:after {
+      content: "";
+      height: 0.2rem;
+      width: 0;
+      bottom: -0.1rem;
+      position: absolute;
+      background: $blue;
+      transition: 0.2s ease all;
+    }
+
+    &:before {
+      left: 50%;
+    }
+
+    &:after {
+      right: 50%;
+    }
+  }
+
+  &__highlight {
+    position: absolute;
+    height: 60%;
+    width: 10rem;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  &__validation {
+    align-self: flex-start;
+  }
+
+  &__error {
+    font-size: $f12;
+    color: $red;
   }
 }
